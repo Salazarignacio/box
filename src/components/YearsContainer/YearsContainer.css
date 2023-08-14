@@ -1,0 +1,190 @@
+* {
+    padding: 0;
+    margin: 0;
+    font-family: sans-serif;
+}
+.YearsContainer {
+    background-color: black;
+}
+input {
+    background-color: rgb(226, 226, 226);
+}
+
+#root {
+    min-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(179, 179, 179);
+    position: relative;
+}
+
+.Year {
+    margin: 0 auto;
+    background-color: pink;
+}
+
+.Months {
+    width: 1100px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; 
+}
+
+h1 {
+    margin-bottom: 20px;
+    background-color: pink;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    border-radius: 5px;
+}
+
+.Day {
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+}
+.days {
+    padding: 8px;
+    background-color: rgb(210, 210, 210);
+    position: absolute;
+    right: 25%;
+    bottom:25%;
+    margin: 0 auto;
+    z-index: 1;    
+    border-radius: 10px;
+}
+
+.gastosContainer {
+    background-color: rgb(187, 187, 187);
+    display: flex;
+    padding: 6px;
+    border-radius: 6px;
+}
+
+.headerDay {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+li {
+    list-style-type: none;
+}
+
+.DaysContainer {
+    width: 280px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:start ;
+    align-items: center;
+}
+
+.Contenedor {
+    
+    background-color: rgb(255, 255, 255);
+    border: none;
+    border-radius: 10px;
+    width: 330px;
+    height: 420px;
+    padding: 10px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    margin: 15px;
+    
+}
+
+.dayListButton {
+    display: flex;
+    font-size: 20px;
+    justify-content: center;
+    align-items: center;
+    width: 32px;
+    height: 32px;
+    margin: 4px;
+    cursor: pointer;
+    border: none;
+    border-radius: 20px;
+    padding: 3px;
+}
+
+.dayListButton:hover {
+    font-weight: bold;
+    border: 2px solid  rgb(239, 151, 255);
+    background-color: pink;
+}
+
+.pDate {
+    font-size: 10px !important;
+}
+
+.dayActive {
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    right: 12px;
+    top: 12px;
+    color: #fff;
+    font-weight: bold;
+    font-size: 15px;
+    background-color: rgb(255, 255, 255);
+    color: rgb(255, 88, 88);
+    z-index: 2;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 25px;
+    
+}
+
+.dayActive:hover {
+    background-color: rgb(255, 88, 88);
+    color:#fff;
+}
+
+.number{
+    width: 90px;
+    border: none;
+    margin: 3px;
+    border-radius: 5px;
+    height: 10px;
+    padding: 12px;
+}
+.text{
+    border: none;
+    border-radius: 5px;
+    height: 10px;
+    padding: 12px;
+    margin: 3px;
+}
+
+ul {
+    padding: 0;
+}
+
+.btn-send:hover {
+    background-color: rgb(97, 185, 212);
+}
+.btn-send{
+    background-color: rgb(151, 237, 247);
+}
+
+.hiden {
+    display: none;
+}
+
+.visible {
+    display: block;
+}
+
+.date {
+    background-color: rgb(187, 187, 187);
+    padding: 8px;
+    border-radius: 8px;
+}
