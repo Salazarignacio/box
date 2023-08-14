@@ -11,7 +11,7 @@ input {
 }
 
 #root {
-    min-height: 90vh;
+    min-height: 100vh;
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
@@ -99,7 +99,7 @@ li {
     border: none;
     border-radius: 10px;
     width: 330px;
-    height: 420px;
+    height: 320px;
     padding: 10px;
     margin: 0 auto;
     display: flex;
