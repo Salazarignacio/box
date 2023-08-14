@@ -13,10 +13,11 @@ input {
 #root {
     min-height: 90vh;
     display: flex;
+    flex-wrap: wrap;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: rgb(179, 179, 179);
+    /* background-color: rgb(224, 224, 224); */
     position: relative;
 }
 
