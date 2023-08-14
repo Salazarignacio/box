@@ -1,11 +1,11 @@
 import Day from "./Day";
 import { useState, useEffect } from "react";
 import { DateTime } from "luxon";
-import {doc, getDoc} from 'firebase/firestore';
+import { doc, getDoc } from "firebase/firestore";
 import { db } from "../SendData/fbConfig";
 
 export default function DayList({ month, dayName, day, year }) {
-  const [inputs, setInputs] = useState({
+  const inputs = {
     a: 0,
     b: 0,
     c: 0,
@@ -16,18 +16,32 @@ export default function DayList({ month, dayName, day, year }) {
     h: 0,
     i: 0,
     j: 0,
+    nA: "",
+    nB: "",
+    nB: "",
+    nC: "",
+    nE: "",
+    nF: "",
+    nG: "",
+    nH: "",
+    nI: "",
+    nJ: "",
     uno: 0,
     dos: 0,
     tres: 0,
+    nUno: "",
+    nDos: "",
+    nTres: "",
+    bsf: 0,
+    mp: 0,
     efInicial: 0,
     efFinal: 0,
-  });
+  };
 
   const [on, setOn] = useState(false);
   const [getDay, setGetDay] = useState("");
 
   useEffect(() => {
-    
     const ref = doc(
       db,
       "caja",
@@ -35,42 +49,39 @@ export default function DayList({ month, dayName, day, year }) {
     );
     getDoc(ref).then((snapShot) => {
       if (snapShot.exists()) {
-        setGetDay({ ...snapShot.data() })
-      } else setGetDay({...inputs})
+        setGetDay({ ...snapShot.data() });
+      } else setGetDay({ ...inputs });
     });
   }, []);
 
   return (
     <>
-      <div >
-         <p>{day <= 7 && dayName[0].toUpperCase()}</p>
-         
+      <div>
+        <p>{day <= 7 && dayName[0].toUpperCase()}</p>
 
         <div className="Day">
           <div>
             <div
               onClick={() => {
-                
                 setOn(true);
               }}
               className={"dayListButton"}
             >
-              
               {DateTime.local(year, month, day).day.toLocaleString(DateTime)}
             </div>
           </div>
 
           {on && (
-                <Day
-                day={day}
-                month={month}
-                year={year}
-                inputs={getDay}
-                setInputs={setGetDay}
-                on={on}
-                setOn={setOn}
-              />
-          )} 
+            <Day
+              day={day}
+              month={month}
+              year={year}
+              inputs={getDay}
+              setInputs={setGetDay}
+              on={on}
+              setOn={setOn}
+            />
+          )}
         </div>
       </div>
     </>

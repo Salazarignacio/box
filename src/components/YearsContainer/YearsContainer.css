@@ -49,7 +49,7 @@ h1 {
 }
 .days {
     padding: 8px;
-    background-color: rgb(210, 210, 210);
+    background-color: rgba(210, 210, 210, 0.843);
     position: absolute;
     right: 25%;
     bottom:25%;
@@ -59,11 +59,21 @@ h1 {
 }
 
 .gastosContainer {
-    background-color: rgb(187, 187, 187);
+    /* background-color: rgb(187, 187, 187); */
+    gap: 10px;
     display: flex;
-    padding: 6px;
+
     border-radius: 6px;
 }
+.tranfCont {
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    
+}
+
+
 
 .headerDay {
     display: flex;
@@ -188,4 +198,10 @@ ul {
     background-color: rgb(187, 187, 187);
     padding: 8px;
     border-radius: 8px;
+}
+
+.noEf {
+    display: flex;
+    align-items:flex-end;
+    flex-direction: column;
 }

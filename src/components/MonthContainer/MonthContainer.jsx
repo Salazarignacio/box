@@ -12,7 +12,7 @@ export const componentsQuantity = (date) => {
 export default function MonthsContainer({year}) {
   return (<>
       <h2>{year}</h2>
-    <div className="Months">
+    <div className="Months ">
       {componentsQuantity(12).map((a, b) => {
         return <DayContainer key={b} month={a} year={year}/>;
       })}
