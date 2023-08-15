@@ -1,22 +1,35 @@
-
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-/* 
-import "./App.css"; */
 import YearsContainer from "./components/YearsContainer/YearsContainer";
-
 import MonthsContainer from "./components/MonthContainer/MonthContainer";
+import { createContext, useContext, useState } from "react";
 
-
+export const ThemeContext = createContext();
 function App() {
-  /* const dateMonth = DateTime.local(2023, 1, 1); */
+  const [off, setOff] = useState(false);
   return (
     <>
-      <BrowserRouter>
-        <Routes>
-          <Route exact path="/" element={<YearsContainer year={2023} />} />
-          <Route exact path="/months" element={<MonthsContainer year={2023}/>} />
-        </Routes>
-      </BrowserRouter>
+      <ThemeContext.Provider value={{ off, setOff }}>
+        <BrowserRouter>
+          <Routes>
+            <Route
+              exact
+              path="/"
+              element={
+                <>
+                <h1>Elige un año</h1>
+                  <YearsContainer year={2023} /> <YearsContainer year={2024} />
+                  <YearsContainer year={2025} /> <YearsContainer year={2026} />
+                  <YearsContainer year={2027} />
+                  <YearsContainer year={2028} />
+                  <YearsContainer year={2029} />
+                  <YearsContainer year={2030} />
+                </>
+              }
+            />
+            <Route exact path="/months/:yearId" element={<MonthsContainer />} />
+          </Routes>
+        </BrowserRouter>
+      </ThemeContext.Provider>
     </>
   );
 }

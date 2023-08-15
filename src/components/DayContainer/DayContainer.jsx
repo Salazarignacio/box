@@ -2,8 +2,12 @@ import { DateTime } from "luxon";
 import DayList from "./DayList";
 import EmptyDay from "./EmpityDay";
 import { componentsQuantity } from "../MonthContainer/MonthContainer";
+import { useContext } from "react";
+import { ThemeContext } from "../../App";
 
 export default function DayContainer({ month, year }) {
+  const theme = useContext(ThemeContext)
+  const {off, setOff} = theme
   const dia = DateTime.local(year, month, 1).weekdayLong.toLocaleString(
     DateTime.DATE_HUGE
   );
@@ -25,47 +29,20 @@ export default function DayContainer({ month, year }) {
       const map = (
         <>
           {d.map((c) => {
-            return (
-              <EmptyDay
-                key={c}
-                day={a}
-                month={month}
-                year={year}
-                dayName={whatDayIs(a)}
-              />
-            );
+            return <EmptyDay />;
           })}
-{/*           <DayList
-            key={a}
-            day={a}
-            month={month}
-            year={year}
-            dayName={whatDayIs(a)}
-          /> */}
         </>
       );
       return map;
-    } /* else {
-      return (
-        <>
-          <DayList
-            key={a}
-            day={a}
-            month={month}
-            year={year}
-            dayName={whatDayIs(a)}
-          />
-        </>
-      );
-    } */
+    }
   };
 
   let domingo = ["a", "b", "c", "d", "e", "f"];
-  let sabado = ["a", "b", "c", "d", "e"];
-  let viernes = ["a", "b", "c", "d" ];
-  let jueves = ["a", "b", "c" ];
-  let miercoles = ["a", "b" ];
-  let martes = ["a" ];
+  let sabado = ["a2", "b2", "c2", "d2", "e2"];
+  let viernes = ["a1", "b1", "c1", "d1"];
+  let jueves = ["a3", "b3", "c3"];
+  let miercoles = ["a4", "b4"];
+  let martes = ["a5"];
   return (
     <>
       <div className="Contenedor">
@@ -82,7 +59,7 @@ export default function DayContainer({ month, year }) {
                 {howMuchEmpties(miercoles, a, "miércoles")}
                 {howMuchEmpties(martes, a, "martes")}
                 <DayList
-                  key={a}
+                  key={b}
                   day={a}
                   month={month}
                   year={year}

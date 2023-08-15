@@ -18,21 +18,20 @@ input {
     justify-content: center;
     align-items: center;
     /* background-color: rgb(224, 224, 224); */
-    position: relative;
+    
 }
 
 .Year {
     margin: 0 auto;
-    background-color: pink;
+    background-color: #fff;
 }
 
 .Months {
-    
+    max-width: 1080px;
     min-width: 330px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center; 
-    
 }
 
 h1 {
@@ -54,7 +53,7 @@ h1 {
     background-color: rgba(210, 210, 210, 0.843);
     position: absolute; 
     right: 25%;
-    bottom:25%;
+    /* top:15%; */
     margin: 0 auto;
     z-index: 1;    
     border-radius: 10px;
@@ -118,6 +117,7 @@ li {
     display: flex;
     font-size: 20px;
     justify-content: center;
+    position: relative;
     align-items: center;
     width: 32px;
     height: 32px;
@@ -208,6 +208,21 @@ ul {
     display: flex;
     align-items:flex-end;
     flex-direction: column;
+}
+
+.hidden {
+    background-color: rgb(57, 21, 21);
+    border: none;
+    border-radius: 10px;
+    width: 330px;
+    height: 320px;
+    padding: 10px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    margin: 15px;
 }
 
 @media (min-width:100px) and (max-width:700px){

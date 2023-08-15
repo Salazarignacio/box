@@ -3,6 +3,8 @@ import { useState, useEffect } from "react";
 import { DateTime } from "luxon";
 import { doc, getDoc } from "firebase/firestore";
 import { db } from "../SendData/fbConfig";
+import { useContext } from "react";
+import { ThemeContext } from "../../App";
 
 export default function DayList({ month, dayName, day, year }) {
   const [inputs, setInputs] = useState({
@@ -39,7 +41,8 @@ export default function DayList({ month, dayName, day, year }) {
 
   const [on, setOn] = useState(false);
   const [getDay, setGetDay] = useState("");
-
+  const theme = useContext(ThemeContext)
+const {off, setOff} = theme
   useEffect(() => {
     const ref = doc(
       db,
@@ -56,13 +59,12 @@ export default function DayList({ month, dayName, day, year }) {
   return (
     <>
       <div>
-        
-
         <div className="Day">
           <div>
             <div
               onClick={() => {
                 setOn(true);
+                setOff(true)
               }}
               className={"dayListButton"}
             >
