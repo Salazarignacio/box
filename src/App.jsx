@@ -2,6 +2,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import YearsContainer from "./components/YearsContainer/YearsContainer";
 import MonthsContainer from "./components/MonthContainer/MonthContainer";
 import { createContext, useContext, useState } from "react";
+import Container from './components/container/Container'
 
 export const ThemeContext = createContext();
 function App() {
@@ -13,9 +14,10 @@ function App() {
           <Routes>
             <Route
               exact
-              path="/"
+              path="/box"
               element={
                 <>
+                
                 <h1>Elige un año</h1>
                   <YearsContainer year={2023} /> <YearsContainer year={2024} />
                   <YearsContainer year={2025} /> <YearsContainer year={2026} />
@@ -26,6 +28,7 @@ function App() {
                 </>
               }
             />
+            <Route exact path="/" element={<Container />} />
             <Route exact path="/months/:yearId" element={<MonthsContainer />} />
           </Routes>
         </BrowserRouter>
