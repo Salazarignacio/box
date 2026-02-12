@@ -1,7 +1,9 @@
 import { DateTime } from "luxon";
 import { doc, setDoc } from "firebase/firestore";
 import { db } from "../SendData/fbConfig";
-const dbName = process.env.DB_FIRE;
+
+const DB_FIRE = import.meta.env.VITE_DB_FIRE;
+
 
 export default function Day({
   month,
@@ -9,9 +11,10 @@ export default function Day({
   year,
   inputs,
   setInputs,
-  on,
   setOn,
 }) {
+  
+  
   const subtotal = {
     subtotal1:
       parseInt(inputs.a) +
@@ -27,14 +30,17 @@ export default function Day({
     subtotal2:
       parseInt(inputs.uno) + parseInt(inputs.dos) + parseInt(inputs.tres),
   };
-  const suma = parseInt(inputs.efFinal) + parseInt(subtotal.subtotal1)
-    + parseInt(inputs.mp)+ parseInt(inputs.bsf)  ;
+  const suma =
+    parseInt(inputs.efFinal) +
+    parseInt(subtotal.subtotal1) +
+    parseInt(inputs.mp) +
+    parseInt(inputs.bsf);
   const total = {
     ventas: suma - parseFloat(inputs.efInicial),
     gastos: parseFloat(subtotal.subtotal1) + parseFloat(subtotal.subtotal2),
   };
   const today = DateTime.local(year, month, day).toLocaleString(
-    DateTime.DATE_FULL
+    DateTime.DATE_FULL,
   );
   const handleInput = (event) => {
     const { name, value } = event.target;
@@ -67,7 +73,7 @@ export default function Day({
       ...inputs,
     };
     /* Here you are */
-    const docRef = doc(db, dbName, today);
+    const docRef = doc(db, DB_FIRE, today);
 
     setDoc(docRef, daySale);
   };
@@ -105,7 +111,6 @@ export default function Day({
         <div className="date">
           <p>Gastos en Efectivo</p>
           <ul>
-            
             <li>
               <input
                 type="text"
@@ -123,12 +128,12 @@ export default function Day({
               />
             </li>
             <li>
-              <input 
-              type="text"
-              name="nB"
-              value={inputs.nB}
-              onChange={(event) => handleInput(event)}
-              className="text"
+              <input
+                type="text"
+                name="nB"
+                value={inputs.nB}
+                onChange={(event) => handleInput(event)}
+                className="text"
               />
               {/* hacer esto dinamico con los name hechos con counters */}
               <input
@@ -140,12 +145,12 @@ export default function Day({
               />
             </li>
             <li>
-              <input 
-              type="text"
-              name="nC"
-              value={inputs.nC}
-              onChange={(event) => handleInput(event)}
-              className="text"
+              <input
+                type="text"
+                name="nC"
+                value={inputs.nC}
+                onChange={(event) => handleInput(event)}
+                className="text"
               />
               <input
                 className="number"
@@ -156,12 +161,12 @@ export default function Day({
               />
             </li>
             <li>
-              <input 
-              type="text"
-              name="nD"
-              value={inputs.nD}
-              onChange={(event) => handleInput(event)}
-              className="text"
+              <input
+                type="text"
+                name="nD"
+                value={inputs.nD}
+                onChange={(event) => handleInput(event)}
+                className="text"
               />
               <input
                 className="number"
@@ -172,12 +177,12 @@ export default function Day({
               />
             </li>
             <li>
-              <input 
-              type="text"
-              name="nE"
-              value={inputs.nE}
-              onChange={(event) => handleInput(event)}
-              className="text"
+              <input
+                type="text"
+                name="nE"
+                value={inputs.nE}
+                onChange={(event) => handleInput(event)}
+                className="text"
               />
               <input
                 className="number"
@@ -189,11 +194,11 @@ export default function Day({
             </li>
             <li>
               <input
-              type="text"
-              name="nF"
-              value={inputs.nF}
-              onChange={(event) => handleInput(event)}
-              className="text"
+                type="text"
+                name="nF"
+                value={inputs.nF}
+                onChange={(event) => handleInput(event)}
+                className="text"
               />
               <input
                 className="number"
@@ -204,12 +209,12 @@ export default function Day({
               />
             </li>
             <li>
-              <input 
-              type="text"
-              name="nG"
-              value={inputs.nG}
-              onChange={(event) => handleInput(event)}
-              className="text"
+              <input
+                type="text"
+                name="nG"
+                value={inputs.nG}
+                onChange={(event) => handleInput(event)}
+                className="text"
               />
               <input
                 className="number"
@@ -220,12 +225,13 @@ export default function Day({
               />
             </li>
             <li>
-              <input 
-              type="text"
-              name="nH"
-              value={inputs.nH}
-              onChange={(event) => handleInput(event)}
-              className="text" />
+              <input
+                type="text"
+                name="nH"
+                value={inputs.nH}
+                onChange={(event) => handleInput(event)}
+                className="text"
+              />
               <input
                 className="number"
                 type="number"
@@ -235,11 +241,13 @@ export default function Day({
               />
             </li>
             <li>
-              <input type="text"
-              name="nI"
-              value={inputs.nI}
-              onChange={(event) => handleInput(event)}
-              className="text" />
+              <input
+                type="text"
+                name="nI"
+                value={inputs.nI}
+                onChange={(event) => handleInput(event)}
+                className="text"
+              />
               <input
                 className="number"
                 type="number"
@@ -249,11 +257,13 @@ export default function Day({
               />
             </li>
             <li>
-              <input type="text"
-              name="nJ"
-              value={inputs.nJ}
-              onChange={(event) => handleInput(event)}
-              className="text" />
+              <input
+                type="text"
+                name="nJ"
+                value={inputs.nJ}
+                onChange={(event) => handleInput(event)}
+                className="text"
+              />
               <input
                 className="number"
                 type="number"
@@ -266,62 +276,64 @@ export default function Day({
           <p>Subtotal ${subtotal1}</p>
         </div>
         <div className="tranfCont">
-        <div className="date">
-          <p>Gastos en Tranferencias</p>
-          <ul>
-            
-            <li>
-              <input 
-              type="text"
-              name="nUno"
-              value={inputs.nUno}
-              onChange={(event) => handleInput(event)}
-              className="text" />
-              <input
-                className="number"
-                name={"uno"}
-                value={uno}
-                onChange={(event) => handleInput(event)}
-                type="number"
-              />
-            </li>
-            <li>
-              <input 
-              type="text"
-              name="nDos"
-              value={inputs.nDos}
-              onChange={(event) => handleInput(event)}
-              className="text" />
-              <input
-                className="number"
-                name={"dos"}
-                value={dos}
-                onChange={(event) => handleInput(event)}
-                type="number"
-              />
-            </li>
-            <li>
-              <input 
-              type="text"
-              name="nTres"
-              value={inputs.nTres}
-              onChange={(event) => handleInput(event)}
-              className="text" />
-              <input
-                className="number"
-                name={"tres"}
-                value={tres}
-                onChange={(event) => handleInput(event)}
-                type="number"
-              />
-            </li>
-          </ul>
-          <p>Subtotal ${subtotal2}</p>
+          <div className="date">
+            <p>Gastos en Tranferencias</p>
+            <ul>
+              <li>
+                <input
+                  type="text"
+                  name="nUno"
+                  value={inputs.nUno}
+                  onChange={(event) => handleInput(event)}
+                  className="text"
+                />
+                <input
+                  className="number"
+                  name={"uno"}
+                  value={uno}
+                  onChange={(event) => handleInput(event)}
+                  type="number"
+                />
+              </li>
+              <li>
+                <input
+                  type="text"
+                  name="nDos"
+                  value={inputs.nDos}
+                  onChange={(event) => handleInput(event)}
+                  className="text"
+                />
+                <input
+                  className="number"
+                  name={"dos"}
+                  value={dos}
+                  onChange={(event) => handleInput(event)}
+                  type="number"
+                />
+              </li>
+              <li>
+                <input
+                  type="text"
+                  name="nTres"
+                  value={inputs.nTres}
+                  onChange={(event) => handleInput(event)}
+                  className="text"
+                />
+                <input
+                  className="number"
+                  name={"tres"}
+                  value={tres}
+                  onChange={(event) => handleInput(event)}
+                  type="number"
+                />
+              </li>
+            </ul>
+            <p>Subtotal ${subtotal2}</p>
           </div>
-            <div className="noEf date ">
-          <p>Pagos virtuales</p>
-          
-        <li>
+          <div className="noEf date ">
+            <p>Pagos virtuales</p>
+
+            <li>
               <label>Mercado Pago</label>
               <input
                 className="number m-1"
@@ -332,7 +344,7 @@ export default function Day({
               />
             </li>
             <li>
-            <label >Billetera Sta Fe</label>
+              <label>Billetera Sta Fe</label>
               <input
                 className="number m-1"
                 name={"bsf"}
@@ -341,15 +353,12 @@ export default function Day({
                 type="number"
               />
             </li>
-            </div>
-        
+          </div>
         </div>
-        
       </div>
       <div className="headerDay date">
         <p style={{ fontWeight: "bold" }}>
           Venta{" "}
-            
           <span
             style={{
               backgroundColor: "black",

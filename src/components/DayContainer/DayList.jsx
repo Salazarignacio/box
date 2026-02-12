@@ -6,6 +6,8 @@ import { db } from "../SendData/fbConfig";
 import { useContext } from "react";
 import { ThemeContext } from "../../App";
 
+const DB_FIRE = import.meta.env.VITE_DB_FIRE;
+
 export default function DayList({ month, dayName, day, year }) {
   const [inputs, setInputs] = useState({
     a: 0,
@@ -46,7 +48,7 @@ const {off, setOff} = theme
   useEffect(() => {
     const ref = doc(
       db,
-      "caja",
+      DB_FIRE,
       DateTime.local(year, month, day).toLocaleString(DateTime.DATE_FULL)
     );
     getDoc(ref).then((snapShot) => {
