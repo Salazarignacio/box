@@ -17,7 +17,7 @@ input {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    /* background-color: rgb(224, 224, 224); */
+     background-color: transparent; 
     
 }
 
@@ -36,7 +36,7 @@ input {
 
 h1 {
     margin-bottom: 20px;
-    background-color: pink;
+    background-color: rgb(108, 124, 255);
     width: 100%;
     display: flex;
     justify-content: center;
@@ -110,7 +110,7 @@ li {
     justify-content: start;
     align-items: center;
     margin: 15px;
-    
+    border: solid 2.5px black;
 }
 
 .dayListButton {

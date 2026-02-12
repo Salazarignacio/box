@@ -1,6 +1,7 @@
 import { DateTime } from "luxon";
 import { doc, setDoc } from "firebase/firestore";
 import { db } from "../SendData/fbConfig";
+const dbName = process.env.DB_FIRE;
 
 export default function Day({
   month,
@@ -65,7 +66,8 @@ export default function Day({
     const daySale = {
       ...inputs,
     };
-    const docRef = doc(db, "caja", today);
+    /* Here you are */
+    const docRef = doc(db, dbName, today);
 
     setDoc(docRef, daySale);
   };
