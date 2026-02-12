@@ -2,16 +2,8 @@ import { DateTime } from "luxon";
 import DayList from "./DayList";
 import EmptyDay from "./EmpityDay";
 import { componentsQuantity } from "../MonthContainer/MonthContainer";
-import { useContext } from "react";
-import { ThemeContext } from "../../App";
 
 export default function DayContainer({ month, year }) {
-  const theme = useContext(ThemeContext)
-  const {off, setOff} = theme
-  const dia = DateTime.local(year, month, 1).weekdayLong.toLocaleString(
-    DateTime.DATE_HUGE
-  );
-
   const monthNumber = DateTime.local(year, month);
 
   const monthName = DateTime.local(year, month, 1)
@@ -20,7 +12,7 @@ export default function DayContainer({ month, year }) {
 
   const whatDayIs = (a) => {
     return DateTime.local(year, month, a).weekdayLong.toLocaleString(
-      DateTime.DATE_HUGE
+      DateTime.DATE_HUGE,
     );
   };
 

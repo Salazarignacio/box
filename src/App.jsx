@@ -16,7 +16,7 @@ function App() {
               path="/"
               element={
                 <>
-                  <h1>Elige un año</h1>
+                  {/* <h2>Elige un año</h2> */}
                   <YearsContainer year={2023} /> <YearsContainer year={2024} />
                   <YearsContainer year={2025} /> <YearsContainer year={2026} />
                   <YearsContainer year={2027} />
